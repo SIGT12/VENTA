@@ -131,6 +131,30 @@ class Producto extends Conectar
         $sql->execute();
         return $resultado=$sql->fetchAll();
     }
+
+    function guardaryeditar(e){
+    e.preventDefault();
+    var formData = new FormData($("#producto_form")[0]);
+    $.ajax({
+        url: "../../controller/producto.php?op=guardaryeditar",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(datos){
+
+            $('#producto_form')[0].reset();
+            $("#modalmantenimiento").modal('hide');
+            $('#producto_data').DataTable().ajax.reload();
+
+            swal.fire(
+                'Registro!',
+                'El registro se guardó correctamente.',
+                'success'
+            )
+        }
+    });
+}
 }
 
 ?>

@@ -1,6 +1,8 @@
-// function init(){
-
-// }
+function init(){
+$("producto_form").on("submit"  , function(e){
+ guardaryeditar();
+})
+ }
 
 $(document).ready(function(){
 
@@ -76,4 +78,4 @@ function eliminar(prod_id){
 
 }
 
-// init();
+ init();
